@@ -1,0 +1,13 @@
+﻿<div class="login-partial">
+    <div style="width: auto; background-color: #728ea7;">
+        @if (Request.IsAuthenticated) {
+            <strong>@Html.Encode(User.Identity.Name)</strong>
+            @Html.ActionLink("Sign Out", "LogOff", "Account")
+        }
+        else {
+            @Html.ActionLink("Register", "Create", "User")
+            <span> | </span>
+            @Html.ActionLink("Sign In", "Login", "Account")
+        }
+    </div> 
+</div>

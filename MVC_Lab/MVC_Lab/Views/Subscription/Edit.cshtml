@@ -1,0 +1,44 @@
+﻿@model MVC_Lab.Models.Subscription
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Subscription</legend>
+
+        @Html.HiddenFor(model => model.SubscriptionId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UserId, "User")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("UserId", String.Empty)
+            @Html.ValidationMessageFor(model => model.UserId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ChatroomId, "Chatroom")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ChatroomId", String.Empty)
+            @Html.ValidationMessageFor(model => model.ChatroomId)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,27 @@
+﻿@model MVC_Lab.Models.Subscription
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<fieldset>
+    <legend>Subscription</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.User.UserName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.User.UserName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Chatroom.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Chatroom.Name)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.SubscriptionId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

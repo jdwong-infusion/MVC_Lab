@@ -1,0 +1,38 @@
+﻿@model IEnumerable<MVC_Lab.Models.Subscription>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.User.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Chatroom.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Chatroom.Name)
+        </td>
+        <td>
+            @if (ViewContext.HttpContext.User.Identity.Name.Equals(item.User.UserName))
+            {
+                @Html.ActionLink("Delete", "Delete", new { id=item.SubscriptionId })
+            }
+        </td>
+    </tr>
+}
+
+</table>
